@@ -16,11 +16,30 @@ import SearchImage from "../components/SearchImage";
 import SearchIcon from "../assets/svg-images/SearchIcon";
 import MIcon from "../assets/svg-images/MIcon";
 import SearchHeader from "../components/SearchHeader";
+import * as SplashScreen from 'expo-splash-screen';
+
+
+
+SplashScreen.preventAutoHideAsync();
+
 const Home = () => {
+
+
   const [popularMovies, setPopularMovies] = useState([]);
   const [UpcomingMovies, setUpcomingMovies] = useState([]);
   const [popularTv, setPopularTv] = useState([]);
   const [documentaryMovies, setDocumentaryMovies] = useState([]);
+  const [loaded, setLoaded] = useState(false);
+
+
+  useEffect(() => {
+    if (loaded) {
+      SplashScreen.hideAsync();
+    }
+  }, [loaded]);
+
+
+
   useEffect(() => {
     fetch(
       "https://api.themoviedb.org/3/movie/popular?api_key=77b9ae4b3e48759ebaf5c4e03093ebbc"
@@ -60,6 +79,9 @@ const Home = () => {
       .then((data) => {
         setDocumentaryMovies(data.results);
       });
+
+      setLoaded(true);
+
   }, []);
 
   const MoviesSections = [
