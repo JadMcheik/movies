@@ -1,8 +1,16 @@
-import { FlatList, SafeAreaView, Text, View } from "react-native";
+import {
+  FlatList,
+  SafeAreaView,
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
 import React, { useEffect, useState } from "react";
 import ListImage from "../components/ListImage";
 import HorizontalFlatList from "../components/HorizontalFlatList";
 import MoviesSection from "../components/MoviesSection";
+import CarouselAutoScroll from "../components/CarouselAutoScroll";
 const Home = () => {
   const [popularMovies, setPopularMovies] = useState([]);
   const [UpcomingMovies, setUpcomingMovies] = useState([]);
@@ -70,21 +78,55 @@ const Home = () => {
 
   return (
     <SafeAreaView>
-      <FlatList
-        contentInset={{ bottom: 20 }}
-        data={MoviesSections}
-        renderItem={({ item }) => (
-          <MoviesSection
-            sectionTitle={item.sectionTitle}
-            SectionMovies={item.SectionMovies}
-          />
-        )}
-        keyExtractor={(item) => item.sectionTitle}
-        ItemSeparatorComponent={() => <View style={{ height: 30 }} />}
-        showsVerticalScrollIndicator={false}
-      />
+      <ScrollView style={styles.HomeScrollView}>
+        <CarouselAutoScroll datas={documentaryMovies} />
+        <MoviesSection
+          sectionTitle="Popular Movies"
+          SectionMovies={popularMovies}
+        />
+        <MoviesSection
+          sectionTitle="Upcoming Movies"
+          SectionMovies={UpcomingMovies}
+        />
+        <MoviesSection sectionTitle="Popular TV" SectionMovies={popularTv} />
+        <MoviesSection
+          sectionTitle="Documentary Movies"
+          SectionMovies={documentaryMovies}
+        />
+        <MoviesSection
+          sectionTitle="Popular Movies"
+          SectionMovies={popularMovies}
+        />
+        <MoviesSection
+          sectionTitle="Upcoming Movies"
+          SectionMovies={UpcomingMovies}
+        />
+        <MoviesSection sectionTitle="Popular TV" SectionMovies={popularTv} />
+        <MoviesSection
+          sectionTitle="Documentary Movies"
+          SectionMovies={documentaryMovies}
+        />
+        <MoviesSection
+          sectionTitle="Popular Movies"
+          SectionMovies={popularMovies}
+        />
+        <MoviesSection
+          sectionTitle="Upcoming Movies"
+          SectionMovies={UpcomingMovies}
+        />
+        <MoviesSection sectionTitle="Popular TV" SectionMovies={popularTv} />
+        <MoviesSection
+          sectionTitle="Documentary Movies"
+          SectionMovies={documentaryMovies}
+        />
+      </ScrollView>
     </SafeAreaView>
   );
 };
 
 export default Home;
+const styles = StyleSheet.create({
+  HomeScrollView: {
+    rowGap: 50,
+  },
+});
