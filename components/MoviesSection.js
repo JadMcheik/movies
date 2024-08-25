@@ -16,6 +16,7 @@ const styles = StyleSheet.create({
   MoviesSection: {
     rowGap: 15,
     marginLeft: 20,
+    marginBottom: 20,
   },
   sectionTitle: {
     fontSize: 24,

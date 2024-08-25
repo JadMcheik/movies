@@ -1,5 +1,6 @@
 import {
   FlatList,
+  Image,
   SafeAreaView,
   ScrollView,
   StyleSheet,
@@ -11,6 +12,10 @@ import ListImage from "../components/ListImage";
 import HorizontalFlatList from "../components/HorizontalFlatList";
 import MoviesSection from "../components/MoviesSection";
 import CarouselAutoScroll from "../components/CarouselAutoScroll";
+import SearchImage from "../components/SearchImage";
+import SearchIcon from "../assets/svg-images/SearchIcon";
+import MIcon from "../assets/svg-images/MIcon";
+import SearchHeader from "../components/SearchHeader";
 const Home = () => {
   const [popularMovies, setPopularMovies] = useState([]);
   const [UpcomingMovies, setUpcomingMovies] = useState([]);
@@ -77,9 +82,11 @@ const Home = () => {
   ];
 
   return (
-    <SafeAreaView>
+    <View>
+      <SearchHeader />
       <ScrollView style={styles.HomeScrollView}>
         <CarouselAutoScroll datas={documentaryMovies} />
+
         <MoviesSection
           sectionTitle="Popular Movies"
           SectionMovies={popularMovies}
@@ -120,7 +127,7 @@ const Home = () => {
           SectionMovies={documentaryMovies}
         />
       </ScrollView>
-    </SafeAreaView>
+    </View>
   );
 };
 
@@ -128,5 +135,6 @@ export default Home;
 const styles = StyleSheet.create({
   HomeScrollView: {
     rowGap: 50,
+    backgroundColor: "#FFFFFF",
   },
 });
