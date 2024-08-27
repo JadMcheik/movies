@@ -1,12 +1,13 @@
 import { StyleSheet, View } from "react-native";
 import MIcon from "../assets/svg-images/MIcon";
 import SearchIcon from "../assets/svg-images/SearchIcon";
+import { Link } from "expo-router";
 
-const SearchHeader = () => {
+const SearchHeader = ({href}) => {
   return (
     <View style={styles.header}>
       <MIcon />
-      <SearchIcon />
+     <Link href={href}><SearchIcon /></Link> 
     </View>
   );
 };

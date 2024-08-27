@@ -33,7 +33,7 @@ const details = () => {
 
   return (
     <View style={styles.details}>
-      <BackArrowHeader href="/" />
+      <BackArrowHeader />
 
       <Image
         source={{
