@@ -115,7 +115,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "flex-end",
-    paddingBottom: 150,
+    paddingBottom: 100,
   },
   movieReleaseDate: {
     fontWeight: "bold",
