@@ -11,6 +11,7 @@ import {
 import { StarRatingDisplay } from "react-native-star-rating-widget";
 import BackArrow from "../assets/svg-images/BackArrow";
 import BackArrowHeader from "../components/BackArrowHeader";
+import PlayVideo from "../assets/svg-images/PlayVideo";
 
 const { width: screenWidth } = Dimensions.get("window");
 const details = () => {
@@ -32,7 +33,7 @@ const details = () => {
 
   return (
     <View style={styles.details}>
-<BackArrowHeader href="/"/>      
+      <BackArrowHeader href="/" />
 
       <Image
         source={{
@@ -40,7 +41,11 @@ const details = () => {
         }}
         style={styles.movieImage}
       />
-
+      <TouchableOpacity style={styles.playVideoView}>
+      
+          <PlayVideo/>
+     
+      </TouchableOpacity>
       <Text style={styles.movieTitle}>{movie.title}</Text>
       <View style={styles.movieGenres}>
         {movie.genres
@@ -79,7 +84,12 @@ const styles = StyleSheet.create({
     height: 350,
     objectFit: "fill",
   },
-
+  playVideoView: {
+    alignSelf: "flex-end",
+    marginRight: 20,
+    marginTop:-40,
+  
+  },
   movieTitle: {
     textAlign: "center",
 
