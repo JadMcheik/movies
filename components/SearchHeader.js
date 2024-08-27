@@ -3,11 +3,13 @@ import MIcon from "../assets/svg-images/MIcon";
 import SearchIcon from "../assets/svg-images/SearchIcon";
 import { Link } from "expo-router";
 
-const SearchHeader = ({href}) => {
+const SearchHeader = ({ href }) => {
   return (
     <View style={styles.header}>
       <MIcon />
-     <Link href={href}><SearchIcon /></Link> 
+      <Link href={href}>
+        <SearchIcon />
+      </Link>
     </View>
   );
 };

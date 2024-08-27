@@ -27,7 +27,7 @@ const Search = () => {
   const gap = 40;
   return (
     <View style={styles.search}>
-<BackArrowHeader fill="black" />
+      <BackArrowHeader fill="black" />
 
       <View style={styles.SearchBarView}>
         <SearchBar

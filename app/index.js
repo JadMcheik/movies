@@ -84,7 +84,7 @@ const Home = () => {
 
   return (
     <View>
-      <SearchHeader href="/search"/>
+      <SearchHeader href="/search" />
       <ScrollView style={styles.HomeScrollView}>
         <CarouselAutoScroll datas={documentaryMovies} />
 

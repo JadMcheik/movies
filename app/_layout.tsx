@@ -8,13 +8,8 @@ export default function Layout() {
       }}
     >
       <Stack.Screen name="index" options={{}} />
-      
 
-      <Stack.Screen
-        name="search"
-        options={{
-        }}
-      />
+      <Stack.Screen name="search" options={{}} />
       <Stack.Screen name="details" options={{}} />
     </Stack>
   );

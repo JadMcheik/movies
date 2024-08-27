@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
   itemContainer: {
     width: screenWidth,
     height: 350,
-    marginBottom:20,
+    marginBottom: 20,
   },
   image: {
     width: "100%",

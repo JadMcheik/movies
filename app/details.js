@@ -42,9 +42,7 @@ const details = () => {
         style={styles.movieImage}
       />
       <TouchableOpacity style={styles.playVideoView}>
-      
-          <PlayVideo/>
-     
+        <PlayVideo />
       </TouchableOpacity>
       <Text style={styles.movieTitle}>{movie.title}</Text>
       <View style={styles.movieGenres}>
@@ -87,8 +85,7 @@ const styles = StyleSheet.create({
   playVideoView: {
     alignSelf: "flex-end",
     marginRight: 20,
-    marginTop:-40,
-  
+    marginTop: -40,
   },
   movieTitle: {
     textAlign: "center",
