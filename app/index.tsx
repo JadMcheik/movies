@@ -12,33 +12,25 @@ import ListImage from "../components/ListImage";
 import HorizontalFlatList from "../components/HorizontalFlatList";
 import MoviesSection from "../components/MoviesSection";
 import CarouselAutoScroll from "../components/CarouselAutoScroll";
-import SearchImage from "../components/SearchImage";
 import SearchIcon from "../assets/svg-images/SearchIcon";
 import MIcon from "../assets/svg-images/MIcon";
 import SearchHeader from "../components/SearchHeader";
-import * as SplashScreen from 'expo-splash-screen';
-
-
+import * as SplashScreen from "expo-splash-screen";
 
 SplashScreen.preventAutoHideAsync();
 
 const Home = () => {
-
-
   const [popularMovies, setPopularMovies] = useState([]);
   const [UpcomingMovies, setUpcomingMovies] = useState([]);
-  const [popularTv, setPopularTv] = useState([]);
+
   const [documentaryMovies, setDocumentaryMovies] = useState([]);
   const [loaded, setLoaded] = useState(false);
-
 
   useEffect(() => {
     if (loaded) {
       SplashScreen.hideAsync();
     }
   }, [loaded]);
-
-
 
   useEffect(() => {
     fetch(
@@ -62,15 +54,6 @@ const Home = () => {
       });
 
     fetch(
-      "https://api.themoviedb.org/3/tv/popular?api_key=77b9ae4b3e48759ebaf5c4e03093ebbc"
-    )
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {
-        setPopularTv(data.results);
-      });
-    fetch(
       "https://api.themoviedb.org/3/discover/movie?api_key=77b9ae4b3e48759ebaf5c4e03093ebbc&with_genres=99"
     )
       .then((res) => {
@@ -80,8 +63,7 @@ const Home = () => {
         setDocumentaryMovies(data.results);
       });
 
-      setLoaded(true);
-
+    setLoaded(true);
   }, []);
 
   const MoviesSections = [
@@ -93,10 +75,7 @@ const Home = () => {
       sectionTitle: "Upcoming Movies",
       SectionMovies: UpcomingMovies,
     },
-    {
-      sectionTitle: "Popular TV",
-      SectionMovies: popularTv,
-    },
+
     {
       sectionTitle: "Documentary Movies",
       SectionMovies: documentaryMovies,
@@ -117,7 +96,7 @@ const Home = () => {
           sectionTitle="Upcoming Movies"
           SectionMovies={UpcomingMovies}
         />
-        <MoviesSection sectionTitle="Popular TV" SectionMovies={popularTv} />
+
         <MoviesSection
           sectionTitle="Documentary Movies"
           SectionMovies={documentaryMovies}
@@ -130,7 +109,7 @@ const Home = () => {
           sectionTitle="Upcoming Movies"
           SectionMovies={UpcomingMovies}
         />
-        <MoviesSection sectionTitle="Popular TV" SectionMovies={popularTv} />
+
         <MoviesSection
           sectionTitle="Documentary Movies"
           SectionMovies={documentaryMovies}
@@ -143,7 +122,7 @@ const Home = () => {
           sectionTitle="Upcoming Movies"
           SectionMovies={UpcomingMovies}
         />
-        <MoviesSection sectionTitle="Popular TV" SectionMovies={popularTv} />
+
         <MoviesSection
           sectionTitle="Documentary Movies"
           SectionMovies={documentaryMovies}
