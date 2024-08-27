@@ -1,7 +1,16 @@
-import { useLocalSearchParams } from "expo-router";
+import { Link, useLocalSearchParams } from "expo-router";
 import { useEffect, useState } from "react";
-import { Dimensions, Image, StyleSheet, Text, View } from "react-native";
+import {
+  Dimensions,
+  Image,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import { StarRatingDisplay } from "react-native-star-rating-widget";
+import BackArrow from "../assets/svg-images/BackArrow";
+import BackArrowHeader from "../components/BackArrowHeader";
 
 const { width: screenWidth } = Dimensions.get("window");
 const details = () => {
@@ -23,16 +32,19 @@ const details = () => {
 
   return (
     <View style={styles.details}>
+<BackArrowHeader href="/"/>      
+
       <Image
         source={{
           uri: `https://image.tmdb.org/t/p/w500${movie.poster_path}`,
         }}
         style={styles.movieImage}
       />
+
       <Text style={styles.movieTitle}>{movie.title}</Text>
       <View style={styles.movieGenres}>
         {movie.genres
-          ? movie.genres.map((item) => <Text>{item.name}</Text>)
+          ? movie.genres.map((item) => <Text key={item.id}>{item.name}</Text>)
           : null}
       </View>
       <View style={styles.movieReviewsView}>
@@ -59,7 +71,9 @@ const styles = StyleSheet.create({
     rowGap: 15,
     alignItems: "center",
     flex: 1,
+    backgroundColor: "#FFFFFF",
   },
+
   movieImage: {
     width: screenWidth,
     height: 350,
